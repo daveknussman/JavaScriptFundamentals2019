@@ -7,8 +7,8 @@ function myName(name) {
 
 function setTeachersNames(teachersName) {
   // change code below this line so that we can set the variable.
-  const teachers = null;
-  teachers = teachersName; //  <- this is  invalid because teachers is a const. How can we fix this?
+  let teachers = null;
+  teachers = teachersName; 
 
   return teachers;
 }
@@ -17,22 +17,30 @@ function setTeachersNames(teachersName) {
 function add(a, b) {
   let sum;
 
+  sum = a + b;
   return sum;
 }
 
 /*** Using the increment operator, add a year to the argument and make me older */
 function ageMeByAYear(age) {
+
+  age++;
   return age;
 }
 
 /*** Using the decrement operator make me age decrement by a year  ***/
 function makeMeYoungerByAYear(age) {
+
+  age--;
   return age;
 }
 
 /** Take the argument that will be a string and return an integer  */
 function convertStringToInt(str) {
   let int;
+
+  // int = parseInt(str);
+  int = Number(str);
   return int;
 }
 
@@ -47,6 +55,8 @@ function convertStringToInt(str) {
  */
 function getTheCharacterPosition(name, letter) {
   let characterPosition;
+
+  characterPosition = name.indexOf(letter);
   return characterPosition;
 }
 
@@ -55,6 +65,7 @@ function getTheCharacterPosition(name, letter) {
 function stringLength(str) {
   let strLength;
 
+  strLength = str.length;
   return strLength;
 }
 
@@ -68,6 +79,7 @@ function stringLength(str) {
 function getLastCharacter(str) {
   let lastCharacter;
 
+  lastCharacter = str.charAt((str.length-1));
   return lastCharacter;
 }
 
@@ -85,7 +97,13 @@ function getLastCharacter(str) {
 
 function getLastWordInPlaceName(place) {
   let newPlace;
+  
+  let spacePosition;
 
+  spacePosition = place.indexOf(' ');
+
+  // newPlace = place.substring((spacePosition+1), (place.length - spacePosition+1));
+  newPlace = place.substring(spacePosition+1);
   return newPlace;
 }
 
@@ -96,6 +114,12 @@ function getLastWordInPlaceName(place) {
 
 function getLargerNumber(arg1, arg2) {
   let largestNumber;
+
+  if (arg1 > arg2) {
+    largestNumber = arg1;
+  } else {
+    largestNumber = arg2;
+  }
 
   return largestNumber;
 }
