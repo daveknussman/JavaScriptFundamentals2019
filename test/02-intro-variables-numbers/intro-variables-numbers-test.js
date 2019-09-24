@@ -116,7 +116,7 @@ describe('Intro Variables And Numbers', () => {
     expect(isEvenOrOdd(3)).equal(false);
   });
 
-  it.('should return print out the correct value when given a certain argument', () => {
+  it('should return print out the correct value when given a certain argument', () => {
     expect(caseInSwitch(1)).to.equal('ONE');
     expect(caseInSwitch(5)).to.equal('FIVE');
     expect(caseInSwitch(7)).to.equal('SEVEN');
