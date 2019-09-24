@@ -263,8 +263,74 @@ function isEvenOrOdd(isEven) {
  * PLEASE TRY AGAIN, if  is none of the above
  * 
  *  *****/
+// npm run test test/02-intro-variables-numbers/intro-variables-numbers-test.js
 
-function caseInSwitch(num) {}
+function caseInSwitch(num) {
+  
+  switch (num) {
+    case 1:
+      return "ONE";
+      break; //assuming break not needed since we are executing return but test not working so...
+    case 2:
+      return "TWO";
+      break;
+    case 3:
+      return "THREE";
+      break;
+    case 4:
+      return "FOUR";
+      break;
+    case 5:
+      return "FIVE";
+      break;
+    case 6:
+      return "SIX";
+      break;
+    case 7:
+      return "SEVEN";
+      break;
+    case 8:
+      return "EIGHT";
+      break;
+    case 9:
+      return "NINE";
+      break;
+    default:
+      return "PLEASE TRY AGAIN";
+  }
+// let num = 50;
+// switch (num) {
+//     case 1:
+//       console.log("ONE");
+//       break;
+//     case 2:
+//       console.log("TWO");
+//       break;
+//     case 3:
+//       console.log("THREE");
+//       break;
+//     case 4:
+//       console.log("FOUR");
+//       break;
+//     case 5:
+//       console.log("FIVE");
+//       break;
+//     case 6:
+//       console.log("SIX");
+//       break;
+//     case 7:
+//       console.log("SEVEN");
+//       break;
+//     case 8:
+//       console.log("EIGHT");
+//       break;
+//     case 9:
+//       console.log("NINE");
+//       break;
+//     default:
+//       console.log("PLEASE TRY AGAIN");
+//  }
+}
 
 /***
  *  Create a function named timesFive
@@ -277,6 +343,12 @@ function caseInSwitch(num) {}
  *   timesFive() should return 5
  *
  */
+
+ function timesFive (num) {
+
+  if (num) return (num*5);
+  else return 5;
+ }
 
 /***
  *  create a function called lowerCaseName that will return the string lowerCased
