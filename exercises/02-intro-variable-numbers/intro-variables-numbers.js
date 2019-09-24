@@ -138,6 +138,14 @@ function getLargerNumber(arg1, arg2) {
 
 function replaceLastName(fullName, newLastName) {
   let newFullName;
+  let oldLastName;
+  let spacePosition;
+  
+  // oldLastName = fullName.substring(fullName.indexOf(' ')+1);
+  spacePosition = fullName.indexOf(' ');
+  oldLastName = fullName.substring(spacePosition+1);
+  newFullName=fullName.replace(oldLastName, newLastName);
+   
   return newFullName;
 }
 
@@ -148,6 +156,14 @@ function replaceLastName(fullName, newLastName) {
 
 function capitalizeLastName(fullName) {
   let capitalizeLastName;
+  let ln;
+  let lnFirst;
+  let lnUpper;
+  
+  ln = fullName.substring(fullName.indexOf(' ')+1);
+  lnFirst = ln.split('')[0];
+  lnUpper = ln.replace(ln.split('')[0], ln.split('')[0].toUpperCase());
+  capitalizeLastName = fullName.replace(ln,lnUpper);
 
   return capitalizeLastName;
 }
@@ -158,7 +174,7 @@ function capitalizeLastName(fullName) {
  *
  */
 function compareEquality(a, b) {
-  if (a == b) {
+  if (a === b) {
     // Change this line
     return 'Equal';
   }
@@ -179,7 +195,7 @@ function compareEquality(a, b) {
 
 function testStrictNotEqual(a, b) {
   // Only Change Code Below this Line
-  if (undefined) {
+  if (a !== b) {
     // Only Change Code Above this Line
 
     return 'Not Equal';
@@ -200,7 +216,8 @@ function testStrictNotEqual(a, b) {
  */
 
 function testLogicalAnd(num) {
-  // code here
+  if ((num > 5) && (num < 10)) return 'Yes';
+  return 'No';
 }
 
 /**
@@ -213,14 +230,22 @@ function testLogicalAnd(num) {
  */
 
 function testLogicalOr(num) {
-  // code here
-}
+  if ((num == 20) || (num == 25)) return 'Yes';
+  return 'No';
+  }
 
 /** Using the modulus operator determine if the argument is an even or odd number */
 
 function isEvenOrOdd(isEven) {
-  return isEven;
+  if (isEven%2 == 0) {
+    return true;
+  }
+  else {
+    return false;
+  }  
 }
+
+
 
 /****
  *  You are given a variable num:
