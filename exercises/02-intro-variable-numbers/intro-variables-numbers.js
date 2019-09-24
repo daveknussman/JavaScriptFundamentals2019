@@ -176,9 +176,9 @@ function capitalizeLastName(fullName) {
 function compareEquality(a, b) {
   if (a === b) {
     // Change this line
-    return 'Equal';
+    return "Equal";
   }
-  return 'Not Equal';
+  return "Not Equal";
 }
 
 /** The function should use the strict inequality operator
@@ -198,9 +198,9 @@ function testStrictNotEqual(a, b) {
   if (a !== b) {
     // Only Change Code Above this Line
 
-    return 'Not Equal';
+    return "Not Equal";
   }
-  return 'Equal';
+  return "Equal";
 }
 
 /***
@@ -361,12 +361,8 @@ function caseInSwitch(num) {
  *
  *
  */
-function lowerCaseName(str) {
-  if (!str) {
-    return;
-  }
-  return str.toLowerCase();
-}
+function lowerCaseName(str) {}
+
 let myExports = {
   myName,
   setTeachersNames,
