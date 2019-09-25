@@ -361,7 +361,15 @@ function caseInSwitch(num) {
  *
  *
  */
-function lowerCaseName(str) {}
+function lowerCaseName(str) {
+
+  if (!str) {
+    return;
+  }
+  else {
+    return str.toLowerCase();
+  }
+}
 
 let myExports = {
   myName,
