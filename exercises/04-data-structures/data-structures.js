@@ -231,7 +231,7 @@ function returnObjectProperties() {
     name: "Rocket"
   };
   // Add code here
-  // hint you need to return an array
+  return [dog.tail,dog.legs,dog.friends,dog.name];
 }
 
 /**
