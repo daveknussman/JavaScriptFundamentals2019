@@ -9,7 +9,11 @@
  *
  *  */
 
-function isEvenOrOdd(number) {}
+function isEvenOrOdd(number) {
+  if (number % 2 == 0) return 'Even';
+
+  return 'Odd';
+}
 
 /****
  *  Create a function that returns a function.
@@ -18,7 +22,10 @@ function isEvenOrOdd(number) {}
  *  functionMaker()() // "Second Function"
  *
  */
-function functionMaker() {}
+function functionMaker() {
+//  newFunc = () => return ('Second Function');
+//   return newFunc;
+}
 
 /***
  * Check if a string (first argument, str) ends with the given target string (second argument, target).
@@ -31,7 +38,11 @@ function functionMaker() {}
  *
  */
 
-function confirmEnding(str, target) {}
+function confirmEnding(str, target) {
+  if ((str.indexOf(target,(str.length-target.length))) > -1) {
+    return 'true';
+  }  else return 'false';
+}
 
 module.exports = {
   isEvenOrOdd,
