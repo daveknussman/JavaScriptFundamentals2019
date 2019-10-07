@@ -35,14 +35,14 @@ function accessingAnArray() {
  * addFunctionsIntoArray()[1](10, 10) // 0;
  */
 
- function addFunctionsIntoArray() {
+//  function addFunctionsIntoArray() {
+// }
+function addFunctionsIntoArray(arg1, arg2) {
+  let add2 = (arg1, arg2) => arg1 + arg2; 
+  let sub2 = (arg1, arg2) => arg1 - arg2;
+  const array1 = [add2,sub2];
+  return array1;
 }
-// function addFunctionsIntoArray(arg1, arg2) {
-//   let add2 = (arg1, arg2) => arg1 + arg2; 
-//   let sub2 = (arg1, arg2) => arg1 - arg2;
-//   const array1 [add2,sub2];
-//   return array1;
-//}
 
 /**
  * Loop through the array using a for loop (or for ... of loop) and return the highest number
@@ -114,8 +114,8 @@ function findAndAbort(arr, id) {
   let retitem;
     for (const item of arr) {
       if (item.id == id) {
-       retitem = item;
-      break;
+        retitem = item;
+        break;
       }
     }
     return retitem;
