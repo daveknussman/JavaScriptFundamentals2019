@@ -18,8 +18,27 @@
    };
  *  
  */
+// npm run test test/challenges/10-7-challenges-test.js
 
-function createGraduateObject(name, graduationYear, skills, links) {}
+function createGraduateObject(name, graduationYear, skills, links) {
+  const graduateObject = {
+    name:' ',
+    graduationYear:' ',
+    skills:[],
+    links : {}
+};
+
+graduateObject.name = name;
+graduateObject.graduationYear = graduationYear;
+graduateObject.skills = Object.values(skills);
+
+for (i=0;i<2;i++) {
+    if (i==0) graduateObject['links']['github'] = links[i]; 
+    if (i==1) graduateObject['links']['linkedIn'] = links[i];
+ }
+
+  return graduateObject;
+}
 
 /**
  * Loop through a nested array of people. For each person in the array,

@@ -222,6 +222,7 @@ function createDogObject() {
  *  @return {array}
  */
 //  ************************** STOP HERE ********************************
+// npm run test test/04-data-structures/data-structures-test.js
 function returnObjectProperties() {
   // Do not change dog here
   let dog = {
@@ -241,7 +242,10 @@ function returnObjectProperties() {
  * @return {object} obj1 and obj2 combined
  */
 
-function combineObject(obj1, obj2) {}
+function combineObject(obj1, obj2) {
+  let obj3 = {...obj1, ...obj2};
+  return obj3;
+}
 
 /**
  * Find a record with the matching id in a collection of records.
@@ -291,6 +295,17 @@ function updateRecords(id, prop, value) {
   };
   // Only change the code after this line
   // Logic Here
+  for (let colitem in collection) {
+    if (colitem == id) {
+        if (Array.isArray(collection[colitem][prop])) {
+              collection[colitem][prop].push(value);
+        }
+            else {
+                   collection[colitem][prop]=value;
+            }
+    }
+  }
+  return collection;
 }
 
 module.exports = {

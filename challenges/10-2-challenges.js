@@ -1,5 +1,7 @@
 /***
  *
+ / npm run test test/challenges/10-2-challenges-test.js
+
  * * Javascript Arrays
  *   The first item in the array should be a "string"
  *   The second item in the array should be a function
@@ -12,7 +14,9 @@
  *
  *  */
 
-function createAnArray() {}
+function createAnArray() {
+  let ary1 
+}
 
 /***
  *   The function will accept two arguments: the string and the target.
