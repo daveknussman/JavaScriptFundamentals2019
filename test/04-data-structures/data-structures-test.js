@@ -166,7 +166,7 @@ describe("Data structures", () => {
    *  After updateRecords(1245, "album", "Riptide"), albums should be "Riptide"
    */
 
-  describe("Data structures", () => {
+  describe.only("Data structures", () => {
     it('updateRecords(5439, "artist", "ABBA"), artist should be "ABBA"', () => {
       let updatedRecord = updateRecords(5439, "artist", "ABBA");
       expect(updatedRecord["5439"]["artist"]).to.equal("ABBA");
@@ -174,7 +174,7 @@ describe("Data structures", () => {
 
     it('updateRecords(5439, "tracks", "Take a Chance on Me") tracks should have "Take a Chance on Me"as the last element.', () => {
       let updatedRecord = updateRecords(5439, "tracks", "Take a Chance on Me");
-
+      console.log(updatedRecord)
       expect(updatedRecord["5439"]["tracks"][0]).to.equal(
         "Take a Chance on Me"
       );

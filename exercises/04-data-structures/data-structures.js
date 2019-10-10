@@ -251,6 +251,7 @@ function combineObject(obj1, obj2) {
  * Find a record with the matching id in a collection of records.
  * If the value is truthy, then swap out one of the records values with a new property.
  * If the original value is an array, it should add the new value to the array.
+ * If the value is blank, delete the prop
  * @param {Number} id what record to change
  * @param {String} property what property to replace
  * @param {String} value new value to replace with
@@ -295,16 +296,39 @@ function updateRecords(id, prop, value) {
   };
   // Only change the code after this line
   // Logic Here
-  for (let colitem in collection) {
-    if (colitem == id) {
-        if (Array.isArray(collection[colitem][prop])) {
-              collection[colitem][prop].push(value);
+  // for (let colitem in collection) {
+  //   if (colitem == id) {
+  //       if (Array.isArray(collection[colitem][prop])) {
+  //             collection[colitem][prop].push(value);
+  //       }
+  //           else {
+  //                  collection[colitem][prop]=value;
+  //           }
+  //   }
+  if (prop == 'tracks') {
+    if (value) {
+        // value passed is not empty - set
+        if (!collection[id][prop]) {
+            // there is no tracks so create before we add
+            collection[id][prop] = []; 
         }
-            else {
-                   collection[colitem][prop]=value;
-            }
+        collection[id][prop].push(value);
+    }
+    else {
+        // value passed is empty - remove
+        delete collection[id][prop];        
     }
   }
+    else {
+        if (value) {
+            // value passed is not empty - set
+            collection[id][prop] = value;
+        }
+        else {
+            // value passed is empty - delete
+            delete collection[id][prop];
+        }
+    }
   return collection;
 }
 
