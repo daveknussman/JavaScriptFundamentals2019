@@ -3,13 +3,18 @@
  * @return {array} an array with four items
  */
 
- // npm run test test/04-data-structures/data-structures-test.js
-
 function createAnArray() {
   let array = ["JavaScript"]; // Do not change this line
-    array.push("RPG");
-    array.push("PHP");
-    array.push("Java");
+  /* Add three more items to the array here */
+
+  // Method 1
+  array.push("Python");
+  array.push("Java");
+  array.push("PHP");
+
+  // Method 2
+  array = [...array, "Python", "Java", "PHP"];
+
   return array;
 }
 
@@ -21,7 +26,7 @@ function createAnArray() {
 
 function accessingAnArray() {
   const cars = ["BMW", "Honda", "Civic"]; // Do not change this line
-    return cars[0];
+  return cars[0];
 }
 
 /***
@@ -35,13 +40,9 @@ function accessingAnArray() {
  * addFunctionsIntoArray()[1](10, 10) // 0;
  */
 
-//  function addFunctionsIntoArray() {
-// }
-function addFunctionsIntoArray(arg1, arg2) {
-  let add2 = (arg1, arg2) => arg1 + arg2; 
-  let sub2 = (arg1, arg2) => arg1 - arg2;
-  const array1 = [add2,sub2];
-  return array1;
+function addFunctionsIntoArray() {
+  let funcArray = [(num1, num2) => num1 + num2, (num1, num2) => num1 - num2];
+  return funcArray;
 }
 
 /**
@@ -54,9 +55,9 @@ function addFunctionsIntoArray(arg1, arg2) {
  *
  **/
 function highestNumber(array) {
-  let highest=-999999999999999;
-  for (let i = 0; i < array.length; i++) {
-    if (highest < array[i]) highest=array[i];
+  let highest;
+  for (let num of array) {
+    if (num > highest || highest === undefined) highest = num;
   }
   return highest;
 }
@@ -71,7 +72,7 @@ function highestNumber(array) {
  **/
 
 function combineArray(array1, array2) {
-    return [...array1, ...array2];
+  return [...array1, ...array2];
 }
 
 /**
@@ -111,14 +112,14 @@ function combineArray(array1, array2) {
  */
 
 function findAndAbort(arr, id) {
-  let retitem;
-    for (const item of arr) {
-      if (item.id == id) {
-        retitem = item;
-        break;
-      }
+  let match;
+  for (let person of arr) {
+    if (person.id === id) {
+      match = person;
+      break;
     }
-    return retitem;
+  }
+  return match;
 }
 
 /**
@@ -131,22 +132,21 @@ function findAndAbort(arr, id) {
  */
 
 function isPalindrome(str) {
-  const charAry = str.split('');
-  let newcharAry = [];
-  let newstr = '';
-
-  for (let i = (str.length-1); i >= 0; i--) {
-    newcharAry.push(charAry[i]);
+  // Method 1
+  let letters = str.split("");
+  let reverse = "";
+  for (let i = letters.length - 1; i >= 0; i--) {
+    const letter = letters[i];
+    reverse += letter;
   }
+  return reverse === str;
 
-  newstr = newcharAry.join('');
-
-  if (str==newstr) {
-    return true;
-  }
-    else {
-      return false;
-    }
+  // Method 2
+  const reverse = str
+    .split("")
+    .reverse()
+    .join("");
+  return reverse === str;
 }
 
 /***
@@ -154,9 +154,32 @@ function isPalindrome(str) {
  * @return {array}
  */
 
-function removeDuplicates() {
-  let numbers = new Set([2, 3, 4, 4, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 5, 32, 3, 4, 5]); 
-  return Array.from(numbers);
+function removeDuplicates(numbers) {
+  // let numbers = [2, 3, 4, 4, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 5, 32, 3, 4, 5]; // You can change this line
+
+  /** Return the an array of unique values */
+  const mySet = new Set([
+    2,
+    3,
+    4,
+    4,
+    2,
+    3,
+    3,
+    4,
+    4,
+    5,
+    5,
+    6,
+    6,
+    7,
+    5,
+    32,
+    3,
+    4,
+    5
+  ]);
+  return [...mySet];
 }
 
 /**
@@ -171,7 +194,7 @@ function accessObject() {
     shoes: "cleats"
   };
   // Only change code below this line
-    return clothes.hat;
+  return clothes.hat;
 }
 
 /**
@@ -188,9 +211,9 @@ function createStudentObject() {
     skills: []
   };
   // Add code here
-  student.firstName = 'David';
-  student.lastName = 'Knussman';
-  student.skills = ['Lansa','PHP','RPG'];
+  student.firstName = "Stacy";
+  student.lastName = "Bresette";
+  student.skills = ["Python", "Teaching", "Being a permanent student"];
   return student;
 }
 
@@ -202,27 +225,21 @@ function createStudentObject() {
  */
 
 function createDogObject() {
-  let myDog = {
-    name:'',
-    legs:'',
-    tails:'',
-   owners:[]
+  return {
+    name: "Sparky",
+    legs: 8,
+    tails: 2,
+    owners: ["Tim Burton"]
   };
-
-  myDog.name = 'Stella';
-  myDog.legs = '4';
-  myDog.tails = '1';
-  myDog.owners = ['Mike','Steve','Fred'];
-  return myDog;
 }
+
 /**
  *  Using Object.keys, return all the properties contained in the object.
  *  The properties are name, legs, tails and friends.
  *
  *  @return {array}
  */
-//  ************************** STOP HERE ********************************
-// npm run test test/04-data-structures/data-structures-test.js
+
 function returnObjectProperties() {
   // Do not change dog here
   let dog = {
@@ -232,7 +249,8 @@ function returnObjectProperties() {
     name: "Rocket"
   };
   // Add code here
-  return [dog.tail,dog.legs,dog.friends,dog.name];
+  // hint you need to return an array
+  return Object.keys(dog);
 }
 
 /**
@@ -243,23 +261,13 @@ function returnObjectProperties() {
  */
 
 function combineObject(obj1, obj2) {
-  let obj3 = {...obj1, ...obj2};
-  return obj3;
+  return { ...obj1, ...obj2 };
 }
 
 /**
  * Find a record with the matching id in a collection of records.
  * If the value is truthy, then swap out one of the records values with a new property.
  * If the original value is an array, it should add the new value to the array.
- *
- *  If prop is "tracks" but the album doesn't have a "tracks" property,
- *  create an empty array before adding the new value to the album's corresponding property
- *
- *  If prop is "tracks" and value isn't empty (""), push the value
- *  onto the end of the album's existing tracks array
- *
- *  If value is empty (""), delete the given prop property from the album.
- *
  * @param {Number} id what record to change
  * @param {String} property what property to replace
  * @param {String} value new value to replace with
@@ -267,7 +275,7 @@ function combineObject(obj1, obj2) {
  *  @example
  *  updateRecords(5439, "artist", "ABBA"); // artist should be "ABBA"
  *  updateRecords(5439, "tracks", "Take a Chance on Me"); // tracks should be ["Old Track", "Take a Chance on Me""]
- *  updateRecords(2548, "artist", ""); // artist should not be set
+ *  updateRecords(2548, "artist", ""); // artist should not change
  *  updateRecords(1245, "tracks", "Addicted to Love"); // tracks should be ["Old Track", "Addicted to Love""]
  *  updateRecords(2468, "tracks", "Free"); // tracks should have "1999"as the first element.
  *  updateRecords(2548, "tracks", ""); // tracks should not change
@@ -276,7 +284,7 @@ function combineObject(obj1, obj2) {
  *
  */
 
-function updateRecords(id, prop, value) {
+function updateRecords(id, property, value) {
   // Do not change collection here
 
   let collection = {
@@ -304,40 +312,12 @@ function updateRecords(id, prop, value) {
   };
   // Only change the code after this line
   // Logic Here
-  // for (let colitem in collection) {
-  //   if (colitem == id) {
-  //       if (Array.isArray(collection[colitem][prop])) {
-  //             collection[colitem][prop].push(value);
-  //       }
-  //           else {
-  //                  collection[colitem][prop]=value;
-  //           }
-  //   }
-  if (prop == 'tracks') {
-    if (value) {
-        // value passed is not empty - set
-        if (!collection[id][prop]) {
-            // there is no tracks so create before we add
-            collection[id][prop] = []; 
-        }
-        collection[id][prop].push(value);
-    }
-    else {
-        // value passed is empty - remove
-        delete collection[id][prop];        
-    }
+  if (value) {
+    if (property === "tracks") collection[id][property] = [...tracks, value];
+    else collection[id][property] = value;
   }
-    else {
-        if (value) {
-            // value passed is not empty - set
-            collection[id][prop] = value;
-        }
-        else {
-            // value passed is empty - delete
-            delete collection[id][prop];
-        }
-    }
-  return collection;
+
+  return collection; //You do not need to change this line.
 }
 
 module.exports = {
