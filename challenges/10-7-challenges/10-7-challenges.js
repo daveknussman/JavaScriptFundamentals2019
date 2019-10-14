@@ -64,7 +64,9 @@ for (i=0;i<2;i++) {
  * It should look something like this:
  * @see /challenges/10-7-challenges/people-example.png
  */
-function createCsvString(people) {}
+function createCsvString(people) {
+  
+}
 
 module.exports = {
   createGraduateObject,

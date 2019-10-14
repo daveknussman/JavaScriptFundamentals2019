@@ -44,3 +44,16 @@ console.log(lnUpper);
 capitalizeLastName = newName.replace(ln,lnUpper);
 
 console.log(capitalizeLastName);
+
+const user = { id: 1234, username: "lolcatz1", email: "lolcatz1@gmail.com" };
+const newEmail = "purr@gmail.com";
+
+    const newUser = {...user};
+    newUser.email = newEmail;
+    console.log(newUser);
+
+const shoppingCart = [{ name: "TV - 20ft", price: 1000000 }];
+const newItem = { name: "Popcorn", price: 5 };
+const newShoppingCart = [...shoppingCart];
+newShoppingCart.push(newItem);
+console.log(newShoppingCart);

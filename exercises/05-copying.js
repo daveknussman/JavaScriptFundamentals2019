@@ -16,7 +16,16 @@
  *
  * user.email = "icanhascheeseburger@yahoo.com"; // This should not change newUser
  */
-const changeEmail = (user, newEmail) => {};
+
+ // npm run test test/05-copying-test.js
+
+//const changeEmail = (user, newEmail) => {};
+
+function changeEmail(user, newEmail) {
+  const newUser = {...user};
+  newUser.email = newEmail;
+  return newUser;
+}
 
 /**
  * Add a new item to a shopping cart. You should deep copy any array and objects.
@@ -37,7 +46,14 @@ const changeEmail = (user, newEmail) => {};
  * shoppingCart[0].price = 9000000; // This should not change newShoppingCart
  * newItem.price = 10; // This should not change newItem
  */
-const addToCart = (shoppingCart, newItem) => {};
+// const addToCart = (shoppingCart, newItem) => {};
+
+function addToCart(shoppingCart,newItem) {
+  const newShoppingCart = JSON.parse(JSON.stringify(shoppingCart));
+  const newnewItem = JSON.parse(JSON.stringify(newItem));
+  newShoppingCart.push(newnewItem);
+  return newShoppingCart;
+}
 
 module.exports = {
   changeEmail,
