@@ -7,7 +7,10 @@
  * @example removeElement(['one','two','three']) // ['two', 'three']
  */
 
-function removeElement(arr) {}
+function removeElement(arr) {
+  const [first, ...rest] = arr;
+  return rest;
+}
 
 /**
  * truncate a string
@@ -30,7 +33,16 @@ function removeElement(arr) {}
  *
  */
 
-function truncateString(str, num) {}
+function truncateString(str, num) {
+  let newStr = ' ';
+  if (str.length > num) {
+    newStr = str.substring(0,num) + '...';
+  }
+    else {
+      newStr = str;
+    }
+  return newStr;
+  }
 
 module.exports = {
   removeElement,

@@ -7,7 +7,9 @@
  *
  */
 
-function objectMaker() {}
+function objectMaker() {
+  return ({name:'Dave'});
+}
 
 /**
  *  As a programmer, I would like to be able to call on a function that returns an object that will allow me to
@@ -37,10 +39,20 @@ function objectMaker() {}
 
 function groceryList() {
   let groceryItems = [];
-
-  return {};
+  return {
+    add: (item) => {
+      groceryItems.push(item);
+     },
+    getList: () => {
+      return groceryItems;
+    },
+    remove: (nbr) => {
+      groceryItems.splice(nbr,1);
+    }
+  };
 }
 
+// npm run test test/06-A-Closer-Look-At-Functions/06-A-Closer-Look-At-Functions-test.js
 /**
  *  slides
  * https://slides.com/accjavascript/deck-2-11#/3
@@ -50,12 +62,11 @@ function groceryList() {
  * this exercise will use a similar pattern with "setters" and "getters".
  * @returns {Object} an object that has two methods. See comments below.
  */
-const calculator = () => {
   /**
    * Create a private variable called "sum"
    * @var {number}
    */
-  /**
+    /**
    * Return an object that has two methods:
    *
    * 1. The first is a "setter" function that a.) accepts a parameter of type number and
@@ -66,7 +77,18 @@ const calculator = () => {
    * that should return the value of "sum" above.
    * @returns {number} the value of sum
    */
-};
+const calculator = () => {
+  let sum = 0;
+  return {
+    set: (nbr) => {
+      sum += nbr;
+      return sum;
+     },
+    get: () => {
+      return sum;
+    }
+  };
+}
 
 /**
  * Write a function called guessingGame which takes in one parameter amount.
@@ -93,7 +115,17 @@ const calculator = () => {
  * guessRound2(1); // "No more guesses. The answer was 0"
  */
 
-const guessingGame = numberOfRounds => {};
+const guessingGame = numberOfRounds => {
+  let answer = Math.floor(Math.random() * 10);
+  let guesses = 0;
+  return (guess) => {
+    guesses += 1;
+    if (guesses > numberOfRounds) return ("No more guesses. The answer was " + answer);
+    if (guess === answer) return ("You got it");
+    if (guess > answer) return ("You're too high!");
+    if (guess < answer) return ("You're too low!");
+  };
+}
 
 /** CLOSURES END */
 
@@ -116,8 +148,14 @@ const guessingGame = numberOfRounds => {};
  * @param {number} a
  * @param {number} b
  */
-const multiplier = (a, b) => {};
-
+const multiplier = (a,b) => {
+  if (b === undefined) {
+      return (b) => {
+          return a * b;
+        };
+  }
+  return a * b;
+};
 /** Currying End */
 
 /*** Callback Start */
