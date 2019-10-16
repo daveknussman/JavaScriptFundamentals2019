@@ -171,7 +171,9 @@ const multiplier = (a,b) => {
  *  - Eddy
  * @param {string} name instuctor name
  */
-const printer = () => {};
+const printer = (name) => {
+  console.log('**'+name+'**');
+};
 
 /**
  * Loops through the array of strings
@@ -179,9 +181,21 @@ const printer = () => {};
  * @param {array}
  * @param {function} callback printer function
  */
-const printNames = () => {};
+
+ // *** for the test,they are calling printNames with an array and the function named printer(above) 
+ // which i have as a parameter to printNames called print (so printNames executing print executes printer)
+ //
+const printNames = (studentArray,print) => {
+  for (let item of studentArray) {
+    print(item);
+  }
+};
+
 
 /*** callback ends */
+
+
+// npm run test test/06-A-Closer-Look-At-Functions/06-A-Closer-Look-At-Functions-test.js
 
 /*** Higher Order Functions Starts */
 
@@ -192,14 +206,19 @@ const printNames = () => {};
  * @param {function} callback
  * @returns {array} new array
  */
-const map = (arr, callback) => {};
+const map = (arr, callback) => {
+  // let newArray = arr.map(callback); 
+  // return newArray;
+};
 
 /**
  * Multiplies each value in an array by two
  * @param {array} arr an array of numbers e.g. [1, 3, 5]
  * @returns {array} new array, with each value doubled e.g. [2, 5, 10]
  */
-const doubleValues = arr => {};
+const doubleValues = arr => {
+  // let newArray = map(arr,(x => x * 2))
+};
 
 /**
  * Given an array nested with objects

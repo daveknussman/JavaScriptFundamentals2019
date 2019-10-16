@@ -57,3 +57,17 @@ const newItem = { name: "Popcorn", price: 5 };
 const newShoppingCart = [...shoppingCart];
 newShoppingCart.push(newItem);
 console.log(newShoppingCart);
+
+const printer = (name) => {
+    console.log('**'+name+'**');
+  };
+
+const printNames = (studentArray,print) => {
+    for (item of studentArray) {
+      print(item);
+    }
+};
+
+const sArray = ['dave','steve'];
+
+let printTheNames = printNames(sArray,printer);
