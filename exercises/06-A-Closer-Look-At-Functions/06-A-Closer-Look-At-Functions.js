@@ -207,18 +207,18 @@ const printNames = (studentArray,print) => {
  * @param {array} arr
  * @param {function} callback
  */
-const forEach = (arr, callback) => {};
+const forEach = (arr, callback) => {
+  for (let ii = 0; ii < arr.length; ii++) {
+    callback(arr[ii],ii,arr);
+  }
+};
 
-/**
- * Given an array of strings, remove all letters of each value except the first and last character in the strings
- * @param {array} arr
- * @returns {array} new array, where each values is the first and character of each string
- * @example
- *   showFirstAndLast(['colt','matt', 'tim', 'udemy']); // ["ct", "mt", "tm", "uy"]
- *   showFirstAndLast(['hi', 'goodbye', 'smile']) // ['hi', 'ge', 'se']
- */
-const showFirstAndLast = arr => {};
-
+//arrItem.substring(0,0)+arrItem.substring((arrItem.length-1),(arrItem.length-1))
+const showFirstAndLast = arr => {
+  const names = [];
+ forEach(arr,(arrItem,xxx,xxxx)=>{names.push(arrItem.substring(0,1)+arrItem.substring((arrItem.length)-1))});
+   return names
+ };
 /***ForEach ends */
 
 /**
@@ -228,19 +228,41 @@ const showFirstAndLast = arr => {};
  * @param {function} callback
  * @returns {array} new array
  */
+// const map = (arr, callback) => {
+//   // let newArray = arr.map(callback); 
+//   // return newArray;
+// };
 const map = (arr, callback) => {
-  // let newArray = arr.map(callback); 
-  // return newArray;
+  let newArray = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    newArray.push( callback(arr[i], i, arr) );
+  }
+  return newArray;
 };
+
+// const nouns = ["dog", "hat", "shoe"];
+// const pluralize = (noun, index, array) => {
+//   // console.log(index);
+//   // console.log(array);
+//   return noun;
+// };
 
 /**
  * Multiplies each value in an array by two
  * @param {array} arr an array of numbers e.g. [1, 3, 5]
  * @returns {array} new array, with each value doubled e.g. [2, 5, 10]
  */
-const doubleValues = arr => {
-  // let newArray = map(arr,(x => x * 2))
+// const doubleValues = arr => {
+//   // let newArray = map(arr,(x => x * 2))
+// };
+const doubleValues = (arr) => {
+  return arr.map( number => number * 2 );
 };
+
+
+//const originalArray = [1, 2, 3];
+  //return doubleValues(originalArray);
 
 /**
  * Given an array nested with objects
