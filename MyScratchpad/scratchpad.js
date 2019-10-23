@@ -71,3 +71,45 @@ const printNames = (studentArray,print) => {
 const sArray = ['dave','steve'];
 
 let printTheNames = printNames(sArray,printer);
+
+
+// const forEach = (arr, callback) => {
+//     for (let ii = 0; ii < arr.length; ii++) {
+//       callback(arr[ii],ii,arr);
+//     };
+//   };
+// const showFirstAndLast = arr => {
+//     const names = [];
+//    forEach(arr,(arrItem,xxx,xxxx)=>{names.push(arrItem.substring(0,1)+arrItem.substring((arrItem.length)-1))});
+//      return names
+//    };
+ 
+// const arr1 = ['dave','steve'];
+// arr2 = showFirstAndLast(arr1);
+
+// console.log(arr2);
+// console.log('test'.substring(0,1))
+
+// const arrayOfNames = [
+//     {name: 'Ellie', age: 20},
+//     {name: 'Tim', age: 35},
+//     {name: 'Matt', age: 18},
+//     {name: 'Colt', age: 47}
+//     ];
+
+// console.log(arrayOfNames);
+
+
+
+// let aaa = extractKey(arrayOfNames, 'name');
+// console.log(aaa);
+
+// const users = [
+//   {id: 1024,username: "smile134",email: "smile134@example.com"},
+//   {id: 1025,username: "newyorkfarmer",email: "johndoe@example.com"}
+// ];
+// console.log(users);
+
+// const deleteUser = (arr, id) => {
+  
+// };

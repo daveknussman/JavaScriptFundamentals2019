@@ -253,16 +253,12 @@ const map = (arr, callback) => {
  * @param {array} arr an array of numbers e.g. [1, 3, 5]
  * @returns {array} new array, with each value doubled e.g. [2, 5, 10]
  */
-// const doubleValues = arr => {
-//   // let newArray = map(arr,(x => x * 2))
-// };
-const doubleValues = (arr) => {
-  return arr.map( number => number * 2 );
+const doubleValues = arr => {
+  let newArray = map(arr,(x => x * 2));
+  return newArray;
+  //  OR  return arr.map( number => number * 2 );
 };
 
-
-//const originalArray = [1, 2, 3];
-  //return doubleValues(originalArray);
 
 /**
  * Given an array nested with objects
@@ -282,7 +278,15 @@ const doubleValues = (arr) => {
  * ];
  * extractKey(arrayOfNames, 'name'); // ['Ellie', 'Tim', 'Matt', 'Colt']
  */
-const extractKey = (arr, key) => {};
+// const extractKey = (arr, key) => {
+
+// };
+const extractKey = (arr, key) => {
+  let newArray =  arr.map((val, i, arr) => {
+   return val[key];
+ });
+ return newArray;
+};
 
 /**
  * Build your own filter function
@@ -291,7 +295,14 @@ const extractKey = (arr, key) => {};
  * @param {function} callback
  * @returns {mixed} a array of values with the values with some of the values removed
  */
-const filter = (arr, callback) => {};
+const filter = (arr, callback) => {
+  let newArray = [];
+  // for (let i = 0; i < arr.length; i++) {
+  //   newArray.push( callback(arr[i], i, arr) => {
+  //   });
+  // }
+  return newArray;
+};
 
 /**
  * Delete the matching user from an array of user objects
@@ -312,9 +323,12 @@ const filter = (arr, callback) => {};
  * findUser(users, 1025);
  * // [{ id: 1024, username:"smile134", email: "smile134@example.com" }]
  */
-const deleteUser = (arr, id) => {};
+const deleteUser = (arr, id) => {
+  let newArray = arr.filter(((val,idx,ary)=>(val.id!==id)));
+  return newArray;
+};
 
-/**
+/*
  * Build your own find function
  * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
  * @param {array} arr
