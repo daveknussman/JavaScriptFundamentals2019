@@ -295,15 +295,15 @@ const extractKey = (arr, key) => {
  * @param {function} callback
  * @returns {mixed} a array of values with the values with some of the values removed
  */
-const filter = (arr, callback) => {
-  let newArray = [];
+const filter = (arr, callback) => { 
+  // let newArray = [];
   // for (let i = 0; i < arr.length; i++) {
-  //   newArray.push( callback(arr[i], i, arr) => {
-  //   });
-  // }
-  return newArray;
-};
+  //   if (callback(arr[i],i,arr) != )
+  // };
+  // return newArray;
 
+};
+ 
 /**
  * Delete the matching user from an array of user objects
  * @param {array} arr array of objects, where each object represents a user
@@ -356,7 +356,11 @@ const find = (arr, callback) => {};
  * findUser(users, 1025);
  * // { id: 1025, username:"newyorkfarmer", email: "johndoe@example.com" }
  */
-const findUser = (arr, id) => {};
+// const findUser = (arr, id) => {};
+const findUser = (arr, id) => {
+  let found = arr.find(itm => itm.id === id);
+  return found;
+};
 
 /**
  * Given an array of numbers, return the sum
@@ -366,14 +370,26 @@ const findUser = (arr, id) => {};
  *  addItems([1,5,6]) // 12
  *  addItems([1,-2,-3]) // -4
  */
-const addItems = arr => {};
+// const addItems = arr => {};
+const addItems = arr => {
+  let sum = arr.reduce((acc, val) => {
+      return acc + val;
+    });
+  return sum;
+};
 
 /**
  * Create a function that flattens an array (that is, it should "unnest" a nested array).
  * @param {array} array e.g. `[[1, 3], [5, 10]]`
  * @returns {array} new, flattened array e.g. `[1, 3, 5, 10]`
  */
-const flattenArray = array => {};
+// const flattenArray = array => {};
+const flattenArray = array => {
+  let flatAry = array.reduce((accAry, itm) => {
+  return accAry.concat(itm);
+}, []);
+return flatAry;
+};
 
 /**
  * Create a function that tallies the number of each kind of "thing" within the array
