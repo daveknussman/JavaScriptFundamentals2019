@@ -335,7 +335,11 @@ const deleteUser = (arr, id) => {
  * @param {function} callback
  * @returns {mixed} a single value in the array
  */
-const find = (arr, callback) => {};
+const find = (arr, callback) => {
+  for (let i=0;i<arr.length;i++) {
+    if (callback(arr[i],i,arr) === arr[i]) return arr[i];
+  };
+};
 
 /**
  * Find and return the matching user in an array of user objects
@@ -386,9 +390,9 @@ const addItems = arr => {
 // const flattenArray = array => {};
 const flattenArray = array => {
   let flatAry = array.reduce((accAry, itm) => {
-  return accAry.concat(itm);
-}, []);
-return flatAry;
+    return accAry.concat(itm);
+    }, []);
+  return flatAry;
 };
 
 /**
@@ -399,7 +403,18 @@ return flatAry;
  *   let fruits = ['Apple', 'Orange', 'Apple', 'Blueberry', 'Grape', 'Grape'];
  *   generateTally(generateTally); // {Apple: 2, Orange: 1, Blueberry: 1, Grape: 2}
  */
-const generateTally = array => {};
+// const generateTally = array => {};
+
+const reducer = (accum,element) => {
+  if (!accum[element]) {
+    accum[element] = 1;
+  } else {
+    accum[element] += 1;
+  }
+  return accum;
+};
+
+const generateTally = (array) => array.reduce(reducer,{});
 
 /**
  * Create a function, that when given an array of object literals, will index the object literals by a single column

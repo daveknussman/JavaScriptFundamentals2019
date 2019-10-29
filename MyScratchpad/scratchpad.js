@@ -133,7 +133,6 @@
 
 // // acc initilaized as object so looping thru array to create object with key of value (banana) that is unique and count them
 // const tally = fruitBasket.reduce( (acc,fruit)=>{
-// //   acc[fruit] = acc[fruit] ? acc[fruit] + 1 : 1;  see below with if (not ternary)
 //   if (!acc[fruit]) {
 //     acc[fruit] = 1
 //   } else {
@@ -184,4 +183,22 @@ const flattenArray = array => {
 
 let flattened = flattenArray(nestedNbrsAry);
 console.log(flattened);
+// ************************************************************************
+
+const fruitBasket = ['banana', 'cherry', 'orange', 'apple', 'cherry', 'orange', 'apple', 'banana', 'cherry', 'orange', 'fig' ];
+
+const reducer = (accum,element) => {
+  if (!accum[element]) {
+    accum[element] = 1;
+  } else {
+    accum[element] += 1;
+  }
+  return accum;
+};
+
+const generateTally = (array) => array.reduce(reducer,{});
+  
+const tally = generateTally(fruitBasket);
+
+console.log(tally);
 // ************************************************************************
