@@ -391,7 +391,7 @@ const addItems = arr => {
 const flattenArray = array => {
   let flatAry = array.reduce((accAry, itm) => {
     return accAry.concat(itm);
-    }, []);
+     }, []);
   return flatAry;
 };
 
@@ -438,7 +438,13 @@ const generateTally = (array) => array.reduce(reducer,{});
  *   456: {id, 456, name: 'Rachel', age: 35}
  * }
  */
-const arrayToObject = arr => {};
+const arrayToObject = arr => {
+  let obj = arr.reduce((acc,val) => {
+    acc[val.id] = val;
+    return acc;
+  }, {});
+  return obj;
+};
 
 module.exports = {
   objectMaker,

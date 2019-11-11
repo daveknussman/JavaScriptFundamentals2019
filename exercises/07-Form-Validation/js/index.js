@@ -19,3 +19,49 @@
 *  1) An error class named .error you can use this class to apply the proper css to an invalid element.
 *  2) You can edit this form however you see fit as the engineer to achieve your goals. (i.e add ids or additional classes if needed)
 */
+// const formValidation = () => {
+//    alert();
+
+// };
+
+const randomForm = document.querySelector("#form");
+randomForm.addEventListener("submit", event => {
+  event.preventDefault(); // Stops the page from refreshing
+  let errorFlag = false;
+   let inputs = Object.values(event.target.elements);
+   // console.log(inputs);
+   for (const inputItem of inputs) {
+      if (inputItem.tagName === 'INPUT') {
+         if (!inputItem.value) {
+            console.log(inputItem.name + ' is undefined');
+            // inputItem.style.border = 'red';
+            // border-width = '4pt';
+            errorFlag = true;
+         // } else {
+         //    console.log(inputItem.name + ' is ' + inputItem.value);
+         }
+      }
+      if (inputItem.tagName === 'SELECT') {
+         if (inputItem.name === 'gender') {
+            if (inputItem.value === 'GENDER') {
+               console.log(inputItem.name + ' is unselected');
+               errorFlag = true;
+            // } else {
+            //    console.log(inputItem.name + ' is ' + inputItem.value);           
+            }
+         }
+         if (inputItem.name === 'class') {
+            if (inputItem.value === 'How many Guest') {
+               console.log(inputItem.name + ' is unselected');
+               errorFlag = true;
+            // } else {
+            //    console.log(inputItem.name + ' is ' + inputItem.value);           
+            }
+         }
+      }
+   }
+   if (!errorFlag) {
+      // alert('submitting');
+      document.getElementById("form").submit();
+   }
+});

@@ -486,6 +486,11 @@ input {
   padding-bottom: 65px;
 }
 
+.error {
+  border: red;
+  border-width: 2pt;
+}
+
 @media (max-width: 767px) {
   .card-1 .card-body {
     padding: 0 40px;
