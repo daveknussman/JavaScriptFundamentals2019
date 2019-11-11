@@ -13,7 +13,7 @@
 
 const waitUntilLater = (callback, time = 0) => {
   setTimeout(() => {
-    console.log(callback());
+    callback();
   }, time);
 };
 
@@ -37,7 +37,6 @@ buttonElement.addEventListener("click", () => {
    */
   waitUntilLater(() => {
     const emailText = getEmailText();
-    // console.log(emailText);
     buttonElement.textContent = "Send to " + emailText;
-  },500);
+  }, 500);
 });
