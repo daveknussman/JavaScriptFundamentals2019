@@ -36,3 +36,29 @@
  * - Clicking on the "«" and "1" buttons should show everything in data-group="1" and hide everything in data-group="2".
  * - Clicking on the "2" and "»" buttons should show everything in data-group="2" and hide everything in data-group="1".
  */
+
+ // could have put ids on the button and comment div instead of using the class of the css
+const buttonComments = document.querySelector(".btn-secondary");
+buttonComments.addEventListener("click", () => {
+    console.log('comment button');
+    const comments = document.querySelector(".card");
+    comments.classList.remove('hidden');
+    // could use .add to put a new class in the classList 
+});
+
+const formSearch = document.querySelector(".form-group");
+formSearch.addEventListener("submit", event => {
+    event.preventDefault();
+    document.querySelector("#searchResultParagraph").textContent ="No results for " + document.querySelector("#search").value + "found";
+});
+
+// added ids to all the paging buttons to identify them
+const pageButtonPrevious = document.querySelector("#buttonPrevious");
+const pageButtonNext = document.querySelector("#buttonNext");
+const pageButton1 = document.querySelector("#button1");
+const pageButton2 = document.querySelector("#button2");
+
+// const buttonPaging = document.querySelectorAll(".page-link");
+// buttonPaging.addEventListener("click", event => {
+//     console.log('paging');
+// });

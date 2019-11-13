@@ -1,3 +1,4 @@
+// const axios = require('axios');
 /**
  *
  * As a user, I should be able to a pick Rick and Morty character from a drop-down, and it should display an image of that character.
@@ -14,4 +15,46 @@
  * https://rickandmortyapi.com/documentation/#get-a-single-character
  *
  * Use the AXIOS library to make AJAX requests.
- */
+  */
+
+// identify dropdown
+const selectCharacter = document.querySelector('#dropdownCharacter');
+
+// load dropdown
+axios({
+    url: "https://rickandmortyapi.com/api/character",
+    method: "GET",
+    headers: {
+        "Content-Type": "applictation/json" // e.g.
+    },
+    body: JSON.stringify({ 
+    })
+  })
+  .then(response => {
+      response.data.results.forEach((curValue)=>{
+        selectCharacter.options.add( new Option(curValue.name, curValue.id));
+      })
+    })  
+  .catch(() => {
+    });
+
+// proccess dropdown selection 
+selectCharacter.addEventListener("input", (e) => {
+    console.log(selectCharacter.value);
+    axios({
+    url: "https://rickandmortyapi.com/api/character/" + selectCharacter.value,
+    method: "GET",
+    headers: {
+        "Content-Type": "applictation/json" // e.g.
+    },
+    body: JSON.stringify({ 
+    })
+  })
+  .then(response => {
+      console.log(response.data.image);
+      const imgRickMorty = document.querySelector('#get-schwifty');
+      imgRickMorty.src=response.data.image;
+    })  
+  .catch(() => {
+    });
+});

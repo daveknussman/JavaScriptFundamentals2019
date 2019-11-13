@@ -31,6 +31,7 @@
 const getBooksApi = () => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
+  reject(new Error('Server is down'));
   resolve({
         "category": "books",
         "subCategory": "graphic novels",
@@ -78,7 +79,7 @@ let data; // Do not change this line.
 // data = getBooksApi()
 //     .then(data => console.log(data))
 //     .catch(() => console.error('Error!'));
-getBooksApi().then(books => data = books.data);
+getBooksApi().then(books => data = books.data).catch(err => console.log(err));
 
 module.exports = {
   getBooksApi,

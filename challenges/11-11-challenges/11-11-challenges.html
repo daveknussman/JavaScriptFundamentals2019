@@ -54,18 +54,19 @@
     <div class="container">
 
       <!-- Handle this form -->
-      <form class="form-group">
+      <form class="form-group" >
         <div class="input-group">
           <input type="search" placeholder="Search for oceans near Albany, NY"
-            aria-label="Search for oceans near Albany, NY" class="form-control">
+            aria-label="Search for oceans near Albany, NY" class="form-control" id="search">
           <div class="input-group-append">
             <button class="btn btn-success" type="submit">Search</button>
+            <!-- <button class="btn btn-success">Search</button> -->
           </div>
         </div>
       </form>
 
       <!-- Display "No results for ___ found" inside of this <p></p> -->
-      <p class="text-white"></p>
+      <p class="text-white" id='searchResultParagraph'></p>
     </div>
   </section>
 
@@ -185,21 +186,21 @@
       <ul class="pagination">
         <li class="page-item">
           <!-- When this is clicked, it should SHOW data-group="1" and hide data-group="2" -->
-          <button class="page-link" type="button" aria-label="Previous">
+          <button class="page-link" type="button" aria-label="Previous" id='buttonPrevious'>
             <span aria-hidden="true">&laquo;</span>
           </button>
         </li>
         <li class="page-item">
           <!-- When this is clicked, it should SHOW data-group="1" and hide data-group="2" -->
-          <button class="page-link" type="button">1</button>
+          <button class="page-link" type="button" id='button1'>1</button>
         </li>
         <li class="page-item">
           <!-- When this is clicked, it should SHOW data-group="2" and hide data-group="1" -->
-          <button class="page-link" type="button">2</button>
+          <button class="page-link" type="button" id='button2'>2</button>
         </li>
         <li class="page-item">
           <!-- When this is clicked, it should SHOW data-group="2" and hide data-group="1" -->
-          <button class="page-link" type="button" aria-label="Next">
+          <button class="page-link" type="button" aria-label="Next" id='buttonNext'>
             <span aria-hidden="true">&raquo;</span>
           </button>
         </li>
