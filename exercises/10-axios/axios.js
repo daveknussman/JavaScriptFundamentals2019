@@ -40,7 +40,7 @@ axios({
 
 // proccess dropdown selection 
 selectCharacter.addEventListener("input", (e) => {
-    console.log(selectCharacter.value);
+    // console.log(selectCharacter.value);
     axios({
     url: "https://rickandmortyapi.com/api/character/" + selectCharacter.value,
     method: "GET",
@@ -51,9 +51,10 @@ selectCharacter.addEventListener("input", (e) => {
     })
   })
   .then(response => {
-      console.log(response.data.image);
       const imgRickMorty = document.querySelector('#get-schwifty');
-      imgRickMorty.src=response.data.image;
+      const txtRickMorty = document.querySelector('#photo-caption');
+      imgRickMorty.src = response.data.image;
+      txtRickMorty.innerText = response.data.name;
     })  
   .catch(() => {
     });
