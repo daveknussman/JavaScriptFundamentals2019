@@ -488,7 +488,7 @@ input {
 
 .error {
   border: red;
-  border-width: 2pt;
+  border-width: 4pt;
 }
 
 @media (max-width: 767px) {

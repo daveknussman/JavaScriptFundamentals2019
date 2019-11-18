@@ -33,12 +33,15 @@ randomForm.addEventListener("submit", event => {
    for (const inputItem of inputs) {
       if (inputItem.tagName === 'INPUT') {
          if (!inputItem.value) {
-            console.log(inputItem.name + ' is undefined');
-            // inputItem.style.border = 'red';
-            // border-width = '4pt';
+            // console.log(inputItem.name + ' is undefined');
+            // console.log(inputItem);
+            inputItem.classList.add('error');
             errorFlag = true;
-         // } else {
-         //    console.log(inputItem.name + ' is ' + inputItem.value);
+         } else {
+            // console.log(inputItem.name + ' is ' + inputItem.value);
+            if (inputItem.classList.contains("error")) {
+               inputItem.classList.remove('error');
+             }
          }
       }
       if (inputItem.tagName === 'SELECT') {

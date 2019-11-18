@@ -32,6 +32,7 @@ axios({
   })
   .then(response => {
       response.data.results.forEach((curValue)=>{
+        // could have used a createElement
         selectCharacter.options.add( new Option(curValue.name, curValue.id));
       })
     })  
