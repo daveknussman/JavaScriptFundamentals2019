@@ -11,6 +11,7 @@
  */
 
 const btnAxios = document.querySelector("#button");
+const btnAxios2 = document.querySelector("#button2");
 const quote = document.querySelector("#quote");
 
 async function getQuote() {
@@ -22,5 +23,19 @@ async function getQuote() {
     }
 };
 
+async function getQuote2() {
+  try {
+    const result = await axios("https://ron-swanson-quotes.herokuapp.com/v2/quotes");
+   return result.data[0];
+  } catch (err) {
+     console.error('Error:', err);
+  }
+};
 
 btnAxios.addEventListener("click",() => getQuote());
+
+btnAxios2.addEventListener("click",() => {
+  getQuote2().then(response => {
+    quote.textContent = response;
+  });
+  });
