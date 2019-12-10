@@ -21,8 +21,8 @@ async function getTemp() {
         let lat = latlong.data.latitude;
         let long = latlong.data.longitude;
         const weather = await axios("http://api.openweathermap.org/data/2.5/weather?" + "lat=" + lat + "&lon=" + long + "&appid=886705b4c1182eb1c69f28eb8c520e20");
-        console.log(weather.data);
-        console.log(weather.data.weather[0]);
+        // console.log(weather.data);
+        // console.log(weather.data.weather[0]);
         localWeather.textContent = weather.data.weather[0].description;
         // console.log(latlong);
         // console.log(latlong.data);

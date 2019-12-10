@@ -18,10 +18,40 @@
  *
  */
 
+// npm run test test/12-Module-Pattern/Module-Pattern-test.js
+
 const { studentGrades } = require("../12-Module-Pattern/students");
 
 const TeacherGradeBook = (() => {
-  return {};
+  const arrAvg = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
+  const newStudentGrades = studentGrades.slice();
+  
+  newStudentGrades.forEach(element => {
+      // let objGrades = element;
+      // console.log(objGrades);
+      // objGrades.average = Math.round(arrAvg(objGrades.grades));
+      // console.log(objGrades.average);
+      element.average = Math.round(arrAvg(element.grades));
+  });
+
+  const getFailingStudents = (failCutoff) => {
+      if (!failCutoff) failCutoff = 65;
+      return newStudentGrades.filter(element => element.average < failCutoff);   
+  };
+  const getPassingStudents = (passCutoff) => {
+      if (!passCutoff) passCutoff = 65;
+      return newStudentGrades.filter(element => element.average >= passCutoff);
+   };
+  const debug = () => {
+    return newStudentGrades;
+
+  };
+
+  return {
+    getFailingStudents,
+    getPassingStudents,
+    debug
+  };
 })();
 
 module.exports = {
